@@ -1,0 +1,439 @@
+@font-face {
+    font-family: 'bitmap';
+    src: url('fonts/BoutiqueBitmap7x7.woff');
+}
+
+@font-face {
+    font-family: 'scilla';
+    font-style: italic;
+    src: url('fonts/scillanarrow-regularitalic-webfont.woff');
+}
+
+@font-face {
+    font-family: 'scilla';
+    font-style: normal;
+    src: url('fonts/scillanarrow-regular-webfont.woff');
+}
+
+@font-face {
+    font-family: 'basier';
+    font-style: italic;
+    src: url('fonts/basiersquaremono-regularitalic-webfont.woff');
+}
+
+@font-face {
+    font-family: 'basier';
+    font-style: normal;
+    src: url('fonts/basiersquaremono-regular-webfont.woff');
+}
+
+:root {
+    --bg: white;
+    --txt: black;
+    --no: #b1b1b1;
+    --green: #bdff00;
+    --marginright: 70px;
+}
+
+* {
+    cursor: url('default.png'), auto;
+}
+
+body {
+    margin: 0;
+    background-color: var(--bg);
+}
+
+a {
+    text-decoration: none;
+    color: var(--txt);
+    cursor: url('pointer.png') 15 0,auto;
+}
+
+/*Scroll Bar*/
+::-webkit-scrollbar {
+	width: 14px;
+	height: 0px;
+}
+
+::-webkit-scrollbar-thumb {
+	background: var(--txt);  
+	border-radius: 0px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+background: none;  
+}
+
+
+/*Page Main Segments*/
+#header {
+    width: 100%;
+    height: 180px;
+    background-image: linear-gradient(var(--green), var(--bg));
+    padding-top: 10px;
+}
+
+#sites {
+    margin-left: var(--marginright);
+    margin-right: calc(var(--marginright) - 2vw);
+}
+
+.holder {
+    width: fit-content;
+    height: fit-content;
+    display: inline-block;
+    vertical-align: top;
+    margin-bottom: 28px;
+    margin-right: 2vw;
+}
+
+h1 /*title*/ {
+    font-family: bitmap;
+    font-size: 100px;
+    margin: 0;
+    font-weight: normal;
+    color: var(--txt);
+}
+
+h2 /*small*/ {
+    font-family: basier;
+    font-size: 14px;
+    line-height: 18px;
+    margin: 0;
+    font-weight: normal;
+    vertical-align: top;
+    margin-top: 16px;
+    color: var(--txt);
+}
+
+h3 /*website title*/ {
+    font-family: basier;
+    font-size: 16px;
+    line-height: 20px;
+    margin: 0;
+    font-weight: normal;
+    margin-top: -8px;
+    color: var(--txt);
+    width: calc((96vw - 160px) / 3);
+}
+
+h4 /*website reason*/ {
+    font-family: basier;
+    font-size: 16px;
+    line-height: 20px;
+    color: var(--no);
+    margin: 0;
+    font-weight: normal;
+    display: none;
+    width: calc((96vw - 160px) / 3);
+}
+
+h3:hover, h4:hover {
+    cursor: url('pointer.png') 15 0,auto;
+}
+
+.button {
+    border: solid 1px var(--txt);
+    border-radius: 20px;
+    width: fit-content;
+    padding: 10px;
+    display: inline-block;
+    margin-bottom: -6px;
+    transition: all 0.3s ease;
+}
+
+.buttoncolumn {
+    display: inline-block; 
+    vertical-align: top;
+    text-align: right;
+    position: absolute;
+    margin: auto;
+    right: var(--marginright);
+}
+
+.button:not(#codee, .submission):hover {
+    cursor: url('pointer.png') 15 0,auto;
+    background-color: var(--txt);
+    color: var(--green);
+}
+
+.submission {
+    color: var(--no);
+    border-color: var(--no);
+}
+
+input {
+    border: none;
+    border-bottom: solid 1px var(--txt);
+    background: none;
+    font-family: inherit;
+    font-size: inherit;
+    color: var(--txt);
+    padding: 0;
+    margin-top: -4px;
+    margin-bottom: -2px;
+}
+
+input:hover {
+    cursor: url('pointer.png') 15 0,auto;
+}
+
+input:focus {
+    outline: none;
+}
+
+.head {
+    width: calc((96vw - 160px) / 3);
+    height: 24px;
+    border: solid 1px var(--txt);
+    border-bottom: none;
+    display: flex;
+}
+
+.circle {
+    width: 12px;
+    height: 12px;
+    border: solid 1px var(--txt);
+    border-radius: 12px;
+    display: inline-block;
+    margin-right: 4px;
+    transform: translateY(-20px);
+}
+
+.frame {
+    width: calc((96vw - 160px) / 3);
+    height: 16vw;
+    border: solid 1px var(--txt);
+    margin-left: 0px;
+    transform: translateY(-20px);
+    overflow: hidden;
+    display: flex;
+}
+
+img {
+    width: 100%;
+    object-fit: cover;
+    object-position: center 0%;
+}
+
+.framehover {
+    border-color: var(--green);
+    box-shadow: 0 0 0 1px var(--green);
+    cursor: url('pointer.png') 15 0,auto;
+}
+
+@keyframes scroll {
+    0% {object-position: center 0%;}
+    75% {object-position: center 100%;}
+    95% {object-position: center 0%;}
+}
+
+.scroll {
+    animation-name: scroll;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    cursor: url('pointer.png') 15 0,auto;
+}
+
+#up {
+    width: 80px;
+    height: 80px;
+    border: solid 1px var(--txt);
+    border-radius: 80px;
+    position: fixed;
+    bottom: 40px;
+    right: var(--marginright);
+    background-color: var(--bg);
+    transition: all 0.3s ease;
+}
+
+#left {
+    background: var(--txt);
+    position: fixed;
+    height: 1px;
+    width: 30px;
+    right: 106.5px;
+    bottom: 95px;
+    transform: rotate(-45deg);
+    transition: all 0.3s ease;
+}
+
+#right {
+    background: var(--txt);
+    position: fixed;
+    height: 1px;
+    width: 30px;
+    right: 85.5px;
+    bottom: 95px;
+    transform: rotate(45deg);
+    transition: all 0.3s ease;
+}
+
+#line {
+    width: 1px;
+    height: 50px;
+    position: fixed;
+    bottom: 55.5px;
+    right: 110.5px;
+    background: var(--txt);
+    transition: all 0.3s ease;
+}
+
+#upp {
+    width: 80px;
+    height: 80px;
+    position: fixed;
+    bottom: 40px;
+    right: var(--marginright);
+    z-index: 2;
+}
+
+#upp:hover {
+    cursor: url('pointer.png') 15 0,auto;
+}
+
+#upp:hover ~ #up {
+    background-color: var(--txt);
+}
+
+#upp:hover ~ #left, #upp:hover ~ #right, #upp:hover ~ #line {
+    background-color: var(--green);
+}
+
+
+
+#menudiv {
+    display: none;
+}
+
+#menudiv .submission {
+    color: var(--no);
+}
+
+#menu {
+    width: 80px;
+    height: 80px;
+    border: solid 1px var(--txt);
+    border-radius: 80px;
+    position: fixed;
+    top: 28px;
+    right: var(--marginright);
+    background-color: var(--bg);
+    transition: all 0.3s ease;
+}
+
+.menuline {
+    width: 46px;
+    height: 1px;
+    position: fixed;
+    top: 54px;
+    right: 88px;
+    background: var(--txt);
+    transition: all 0.3s ease;
+}
+
+#menuu {
+    width: 80px;
+    height: 80px;
+    position: fixed;
+    top: 28px;
+    right: var(--marginright);
+    z-index: 2;
+}
+
+#menuu:hover {
+    cursor: url('pointer.png') 15 0,auto;
+}
+
+#menuu:hover ~ #menu {
+    background-color: var(--txt);
+}
+
+#menuu:hover ~ .menuline {
+    background-color: var(--green);
+}
+
+#menubar {
+    font-family: basier;
+    font-size: 16px;
+    line-height: 28px;
+    position: fixed;
+    top: 120px;
+    right: var(--marginright);
+    font-weight: normal;
+    color: var(--txt);
+    overflow: hidden;
+    transition: all 0.2s ease-in-out;
+
+    height: 0;
+    padding: 0;
+    border: solid 1px transparent;
+    background-color: transparent;
+}
+
+
+
+@media screen and (max-width: 1340px) {
+    #about {
+        display: none !important;
+    }
+    .head, .frame, h3, h4 {
+        width: calc((98vw - 158px) / 2);
+    }
+
+    .frame {
+        height: 26vw;
+    }
+}
+
+@media screen and (max-width: 970px) {
+    #menudiv {
+        display: block;
+    }
+
+    .button {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .head, .frame, h3, h4 {
+        width: calc(100vw - 156px);
+    }
+
+    .frame {
+        height: 48vw;
+    }
+}
+
+@media screen and (max-width: 760px) {
+    :root {
+        --marginright: 20px;
+    }
+
+    h1 {
+        margin-left: -52px;
+    }
+
+    .head, .frame, h3, h4 {
+        width: calc(98vw - 48px);
+    }
+
+    #left {
+        right: 56.5px;
+    }
+
+    #right {
+        right: 35.5px;
+    }
+
+    #line {
+        right: 60.5px;
+    }
+
+    .menuline {
+        right: 38px;
+    }
+}
