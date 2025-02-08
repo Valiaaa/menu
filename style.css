@@ -65,6 +65,16 @@ body {
     z-index: -1;
 }
 
+.button-wrapper {
+    width: 40px; /* 或其他你想要的大小 */
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .languageWrap {
     position: absolute;
     top: 28px;
@@ -286,7 +296,6 @@ body {
     font-size: 28px;
     top: 28px;
     left: calc(var(--marginLR) - 18px);
-    padding-top: -6px;
     transform: rotate(270deg);
 }
 

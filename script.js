@@ -37,7 +37,7 @@ $(document).ready(function () {
                                 <h3>${currentLanguage === "EN" ? item.name : item.cname}</h3>
                                 <p>${currentLanguage === "EN" ? item.ingredients : item.cingredients}</p>
                             </div>
-                            <button class="toggle-cart" data-id="${itemId}">+</button>
+                            <div class="button-wrapper"><button class="toggle-cart" data-id="${itemId}">+</button></div>
                         </div>
                     `);
                 });
@@ -85,7 +85,8 @@ $(document).ready(function () {
 
     function updateCartCount() {
         $("#cart-count").text(cart.size);
-    }
+        $("#all-set span").text(cart.size); // 同步到 All Set 旁边的数字
+    }          
 
     // "View Menu" 按钮点击，渐变进入新页面
     $("#view-cart").click(function () {
@@ -104,27 +105,34 @@ $(document).ready(function () {
         $("#order-summary").fadeOut(400);
         setTimeout(() => {
             $("body").css("background-color", "#4F401A"); // 恢复原始背景色
-        $("#menu-section").fadeIn(400);
+            $("#menu-section").fadeIn(400);
+            displayMenu(); // **这里新增 displayMenu() 以刷新菜品**
         }, 400);
-    });
+    });    
 
     // 加载订单页面内容
     function loadOrderSummary() {
         $("#selected-menu-items").empty();
         cart.forEach(itemId => {
-            $("#selected-menu-items").append(`
-                <div class="menu-item2" data-id="${itemId}">
-                    <h3>${itemId}</h3>
-                    <button class="remove-from-cart" data-id="${itemId}">−</button>
-                </div>
-            `);
+            let [category, subCategory, index] = itemId.split("-");
+            let item = menuData[category]?.[subCategory]?.[index];
+    
+            if (item) {
+                let displayName = currentLanguage === "EN" ? item.name : item.cname;
+                $("#selected-menu-items").append(`
+                    <div class="menu-item2">
+                        <h3>${displayName}</h3>
+                        <button class="remove-from-cart" data-id="${itemId}">−</button>
+                    </div>
+                `);
+            }
         });
-
+    
         $("#date-input").val(userInfo.date);
         $("#time-input").val(userInfo.time);
         $("#note-input").val(userInfo.note);
         $("#name-input").val(userInfo.name);
-    }
+    }    
 
     // 监听用户输入，记录数据
     $(".user-input").on("input", function () {
@@ -141,4 +149,50 @@ $(document).ready(function () {
     });
 
     loadMenuData();
+
+    // 类别切换键
+    $(document).ready(function () {
+        function scrollToDivider(direction) {
+            let dividers = $(".menu-divider"); // 获取所有 `.menu-divider`
+            let scrollTop = $(window).scrollTop(); // 当前滚动位置
+            let targetIndex = -1; // 目标 `.menu-divider` 的索引
+    
+            dividers.each(function (index) {
+                let offsetTop = $(this).offset().top; // 获取 `.menu-divider` 的位置
+                if (direction === "up" && offsetTop < scrollTop) {
+                    targetIndex = index; // 记录 **当前屏幕上方** 最近的 `.menu-divider`
+                }
+                if (direction === "down" && offsetTop > scrollTop + 10) { // 避免小偏差
+                    targetIndex = index;
+                    return false; // 找到第一个后停止
+                }
+            });
+    
+            if (direction === "up") {
+                if (targetIndex === -1) {
+                    // **如果已经在最顶部，跳到最后一个 `.menu-divider`**
+                    $("html, body").animate({ scrollTop: dividers.last().offset().top }, 500);
+                } else {
+                    $("html, body").animate({ scrollTop: dividers.eq(targetIndex).offset().top }, 500);
+                }
+            } else if (direction === "down") {
+                if (targetIndex === -1) {
+                    // **如果已经在最底部，跳到第一个 `.menu-divider`**
+                    $("html, body").animate({ scrollTop: dividers.first().offset().top }, 500);
+                } else {
+                    $("html, body").animate({ scrollTop: dividers.eq(targetIndex).offset().top }, 500);
+                }
+            }
+        }
+    
+        // **绑定按钮事件**
+        $("#scroll-up").click(function () {
+            scrollToDivider("up");
+        });
+    
+        $("#scroll-down").click(function () {
+            scrollToDivider("down");
+        });
+    });
+     
 });
