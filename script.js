@@ -100,7 +100,7 @@ $(document).ready(function () {
     });
 
     // 返回菜单界面
-    $("#back-to-menu").click(function () {
+    $("#back-to-menu, #back-to-menu2").click(function () {
         $("#order-summary").fadeOut(400);
         setTimeout(() => {
             $("body").css("background-color", "#4F401A"); // 恢复原始背景色
