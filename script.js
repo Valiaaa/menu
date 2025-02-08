@@ -1,164 +1,144 @@
-$(document).ready(function() {
 
+$(document).ready(function () {
+    let menuData = {};
+    let currentLanguage = "EN"; // 默认语言
+    let cart = new Set(); // 用 Set 存储选中的菜单项，避免重复添加
+    let userInfo = { date: "", time: "", note: "", name: "" }; // 记录用户输入信息
 
-    $. getJSON("web.json")
-    .done(function(data) {
-      console.log(data);
-
-    $('.randompage').click(function() {
-        const rndInt = Math.floor(Math.random() * data.length);
-        window.open(data[rndInt].Link, '_blank');
-    })
-
-
-      for(let i=0; i<data.length; i++){
-        let NAME = data[i].Name;
-        let LINK = data[i].Link;
-        let REASON = data[i].Reason;
-        let TAG1 = data[i].tag1;
-        let TAG2 = data[i].tag2;
-        let TAG3 = data[i].tag3;
-
-
-        $('#sites').append('<a target="_blank" href="' + LINK + '" class="holder"><div class="head"></div><div class="circle" style="margin-left: 8px;"></div><div class="circle"></div><div class="circle"></div><div class="frame"><img src="pics/' + NAME +'.png"></div><h3>' + NAME + '</h3><h4>' + REASON + '</h4></a>');
-
-        $(".holder").hover(function(){
-            $('.head, .circle, .frame',this).addClass('framehover');
-            $('img',this).addClass('scroll');
-        }, function(){
-            $('.head, .circle, .frame',this).removeClass('framehover');
-            $('img',this).removeClass('scroll');
-        });
-      };
-    });
-
-
-
-
-
-    var value = 0;
-    $("#nightmode").click(function(){
-        value ++;
-        if (value == 0) {
-            $(':root').css({'--bg':'#ffffff','--txt':'#000000','--no':'#b1b1b1'});
-            $("#nightmode").text($("#nightmode").text().replace("day", "night"));
-            $("#nightmode2").text($("#nightmode").text().replace("day", "night"));
-        } else if (value == 1) {
-            $(':root').css({'--bg':'#121212','--txt':'#f9f9f9','--no':'#656565'});
-            $("#nightmode").text($("#nightmode").text().replace("night", "day"));
-            $("#nightmode2").text($("#nightmode").text().replace("night", "day"));
-        } else {
-            value = 0;
-            $(':root').css({'--bg':'#ffffff','--txt':'#000000','--no':'#b1b1b1'});
-            $("#nightmode").text($("#nightmode").text().replace("day", "night"));
-            $("#nightmode2").text($("#nightmode").text().replace("day", "night"));
-        }
-    });
-
-    $("#nightmode2").click(function(){
-        value ++;
-        if (value == 0) {
-            $(':root').css({'--bg':'#ffffff','--txt':'#000000','--no':'#b1b1b1'});
-            $("#nightmode").text($("#nightmode").text().replace("day", "night"));
-            $("#nightmode2").text($("#nightmode").text().replace("day", "night"));
-        } else if (value == 1) {
-            $(':root').css({'--bg':'#121212','--txt':'#f9f9f9','--no':'#656565'});
-            $("#nightmode").text($("#nightmode").text().replace("night", "day"));
-            $("#nightmode2").text($("#nightmode").text().replace("night", "day"));
-        } else {
-            value = 0;
-            $(':root').css({'--bg':'#ffffff','--txt':'#000000','--no':'#b1b1b1'});
-            $("#nightmode").text($("#nightmode").text().replace("day", "night"));
-            $("#nightmode2").text($("#nightmode").text().replace("day", "night"));
-        }
-    });
-
-    $('.code').bind("enterKey",function(e){
-        if (this.value == "showrs") {
-            $("h4").css("display", "block");
-            $('input').css('color','blue');
-            $(this).attr('size','7');
-            $(this).val('success!');
-            $("body").one("click", function() {
-                $('.code').val(null);
-                $('input').css('color','var(--txt)');
-                $('.code').attr('size','6');
-            });           
-        }
-        else {
-            $('input').css('color','red');
-            $(this).attr('size','12');
-            $(this).val('invalid code');
-            $("body").one("click", function() {
-                $('.code').val(null);
-                $('input').css('color','var(--txt)');
-                $('.code').attr('size','6');
-            });  
-        }
-    });
-
-
-
-    $('.code').keyup(function(e){
-        if(e.keyCode == 13)
-        {
-            $(this).trigger("enterKey");
-        }
-    });
-
-    $('#upp').click(function() {
-        $('html, body').animate({
-            scrollTop: $('html').offset().top
-          }, 800)
-    });
-
-
-    var closemenu = function() {
-        vv ++;
-        $('#menu').css("background-color","var(--bg)");
-        $('.menuline').css("background-color","var(--txt)");
-        $('#menubar').css({"height":"0","padding":"0","border":"solid 1px transparent","background-color":"transparent"});
-    };
-
-    var vv = 0
-    $('#menuu').click(function() {
-        $('#menu').css("background-color","var(--txt)");
-        $('.menuline').css("background-color","var(--green)");
-        $('#menubar').css({"height":"150px","padding":"10px","border":"solid 1px var(--txt)","background-color":"var(--bg)"});
-        vv ++;
-    });
-
-    $(document).on('click', function (event) {
-        if (!$(event.target).closest('#menubar').length && vv == 1) {
-            $('body').bind( "click", closemenu );
-            $("#menubar").click(function(event) {
-                event.stopPropagation();
-            });
-          // ... clicked on the 'body', but not inside of #menutop
-        } else if (!$(event.target).closest('#menubar').length && vv >= 2) {
-            vv = 0;
-            $('body').unbind( "click", closemenu );
-        }
-    });
-
-
-    if ($( window ).width() <= 760) {
-        $('h1').html('(<span style="font-family: scilla; font-style: italic; margin-left: -16px; margin-right: 8px;">Web</span>)<div style="margin-top:-2px;margin-left:12px">Marks</div>');
-        $('#header').css("height",'260px');
-    } else {
-        $('h1').html('(<span style="font-family: scilla; font-style: italic; margin-left: -16px; margin-right: 8px;">Web</span>)Marks');
-        $('#header').css("height",'180px');
+    // 获取菜单数据
+    function loadMenuData() {
+        $.getJSON("menu.json", function (data) {
+            menuData = data;
+            displayMenu();
+        }).fail(() => console.error("Error loading menu.json"));
     }
 
-    $(window).resize(function() {
-        if ($( window ).width() <= 760) {
-            $('h1').html('(<span style="font-family: scilla; font-style: italic; margin-left: -16px; margin-right: 8px;">Web</span>)<div style="margin-top:-2px;margin-left:12px">Marks</div>');
-            $('#header').css("height",'260px');
-        } else {
-            $('h1').html('(<span style="font-family: scilla; font-style: italic; margin-left: -16px; margin-right: 8px;">Web</span>)Marks');
-            $('#header').css("height",'180px');
-        }
+    // 显示菜单
+    function displayMenu() {
+        $("#menu-items").empty();
+
+        Object.keys(menuData).forEach(category => {
+            let categoryTitle = "";
+            if (category === "protein_entree") categoryTitle = "Protein Entree";
+            if (category === "carb_entree") categoryTitle = "Carb Entree";
+            if (category === "soup") categoryTitle = "Soup";
+
+            $("#menu-items").append(`<h2 class="menu-category">${categoryTitle}</h2>`);
+
+            Object.keys(menuData[category]).forEach(subCategory => {
+                $("#menu-items").append();
+
+                menuData[category][subCategory].forEach((item, index) => {
+                    const itemId = category + "-" + subCategory + "-" + index;
+
+                    $("#menu-items").append(`
+                        <div class="menu-item" data-id="${itemId}">
+                            <div class="textPt">
+                                <h3>${currentLanguage === "EN" ? item.name : item.cname}</h3>
+                                <p>${currentLanguage === "EN" ? item.ingredients : item.cingredients}</p>
+                            </div>
+                            <button class="toggle-cart" data-id="${itemId}">+</button>
+                        </div>
+                    `);
+                });
+
+                $("#menu-items").append(`<div class="menu-divider">`);
+            });
+        });
+
+        updateCartButtons();
+    }
+
+    // 语言切换
+    $(".language-toggle").click(function () {
+        $(".language-toggle").removeClass("active");
+        $(this).addClass("active");
+        currentLanguage = $(this).attr("id") === "language-en" ? "EN" : "ZH";
+        displayMenu();
     });
 
+    // 添加/移除菜单项到购物车
+    $(document).on("click", ".toggle-cart", function () {
+        const itemId = $(this).attr("data-id");
 
+        if (cart.has(itemId)) {
+            cart.delete(itemId);
+        } else {
+            cart.add(itemId);
+        }
+
+        updateCartButtons();
+        updateCartCount();
+    });
+
+    function updateCartButtons() {
+        $(".toggle-cart").each(function () {
+            const itemId = $(this).attr("data-id");
+    
+            if (cart.has(itemId)) {
+                $(this).text("−").addClass("filled-button").removeClass("border-button");
+            } else {
+                $(this).text("+").addClass("border-button").removeClass("filled-button");
+            }
+        });
+    }    
+
+    function updateCartCount() {
+        $("#cart-count").text(cart.size);
+    }
+
+    // "View Menu" 按钮点击，渐变进入新页面
+    $("#view-cart").click(function () {
+        $("body").css("transition", "background-color 0.5s ease");
+        $("body").css("background-color", "#4F401A");
+
+        setTimeout(() => {
+            $("#menu-section").hide();
+            $("#order-summary").fadeIn(600);
+            loadOrderSummary();
+        }, 600);
+    });
+
+    // 返回菜单界面
+    $("#back-to-menu").click(function () {
+        $("#order-summary").fadeOut(400);
+        setTimeout(() => {
+            $("body").css("background-color", "#4F401A"); // 恢复原始背景色
+        $("#menu-section").fadeIn(400);
+        }, 400);
+    });
+
+    // 加载订单页面内容
+    function loadOrderSummary() {
+        $("#selected-menu-items").empty();
+        cart.forEach(itemId => {
+            $("#selected-menu-items").append(`
+                <div class="menu-item" data-id="${itemId}">
+                    <h3>${itemId}</h3>
+                    <button class="remove-from-cart" data-id="${itemId}">−</button>
+                </div>
+            `);
+        });
+
+        $("#date-input").val(userInfo.date);
+        $("#time-input").val(userInfo.time);
+        $("#note-input").val(userInfo.note);
+        $("#name-input").val(userInfo.name);
+    }
+
+    // 监听用户输入，记录数据
+    $(".user-input").on("input", function () {
+        let key = $(this).attr("id").replace("-input", "");
+        userInfo[key] = $(this).val();
+    });
+
+    // 监听减号按钮，移除菜单项
+    $(document).on("click", ".remove-from-cart", function () {
+        const itemId = $(this).attr("data-id");
+        cart.delete(itemId);
+        loadOrderSummary();
+        updateCartCount();
+    });
+
+    loadMenuData();
 });

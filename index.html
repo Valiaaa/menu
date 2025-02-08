@@ -1,58 +1,80 @@
+
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>(Web)Marks</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-        <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-        <link rel="stylesheet" type="text/css" href="style.css"> 
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-        <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js" integrity="sha256-eTyxS0rkjpLEo16uXTS0uVCS4815lc40K2iVpWDvdSY=" crossorigin="anonymous"></script>
-        <script src="script.js"></script>
-        <link rel="icon" href="icon.png">
-    </head>
-
-    <body>
-        <div id="header">
-            <h1 style="padding-left: 60px; width: fit-content; display: inline-block;"></h1>
-            <h2 style="width:20%; display: inline-block; margin-left: 60px;" id="about">Inspired by the <a href="https://ilovecreatives.com/internet-gems" target="_blank" style="text-decoration: underline;">Internet Gems</a> by ilovecreatives, this is a collection of websites that I would want to visit back again and again. :)</h2>
-            <div class="buttoncolumn">
-                <h2 class="button submission">submission</h2><br>
-                <h2 class="button randompage">random page</h2>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Website</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <!-- Menu Section -->
+    <section id="menu-section">
+        <header>
+            <div class="menu-header">
+                <img src="header.png" alt="Menu Header">
+                <button id="language-en" class="language-toggle active">EN</button>
+                <button id="language-zh" class="language-toggle">中</button>
             </div>
-            <div class="buttoncolumn"   style="right:220px;">
-                <h2 class="button" id="nightmode">night mode</h2><br>
-                <h2 class="button" id="codee">code:<input type="text" class="code" name="code" size="6" /></h2>
-            </div>
-        </div>
+        </header>
 
-        <div id="sites">
-        </div>
+        <main>
+            <section id="menu">
+                <div id="menu-items"></div>
+            </section>
+        </main>
 
-        <div id="upp"></div>
-        <div id="up"></div>
-        <div id="left"></div>
-        <div id="right"></div>
-        <div id="line"></div>
-
-        <div id="menudiv">
-            <div id="menuu"></div>
-            <div id="menu"></div>
-            <div class="menuline"></div>
-            <div class="menuline" style="top: 68px"></div>
-            <div class="menuline" style="top: 82px"></div>
-            <div id="menubar">
-                <div id="nightmode2">night mode</div>
-                <div class='randompage'>random page</div>
-                <div class="submission">submission</div>
-                <br>
-                code:<input type="text" class="code" name="code" size="6" /></h2>
+        <!-- Floating Buttons -->
+        <div class="operation">
+            <hr>
+            <div id="floating-buttons">
+                <button id="scroll-up">^</button>
+                <button id="scroll-down">^</button>
+                <button id="view-cart">View Menu <span id="cart-count">0</span></button>
             </div>
         </div>
+    </section>
 
-        <br><br>
-    </body>
+    <!-- Order Summary Section (隐藏，点击 "View Menu" 后显示) -->
+    <section id="order-summary" style="display: none;">
+        <header>
+            <div class="menu-header">
+                <button id="back-to-menu">&#8592;</button>
+                <img src="header.png" alt="Menu Header">
+                <button id="language-en" class="language-toggle active">EN</button>
+                <button id="language-zh" class="language-toggle">中</button>
+            </div>
+        </header>
+
+        <main>
+            <h2 class="menu-category">Your Info</h2>
+            <p>Dear Valia, with trembling hands, I humbly ask for your culinary grace on 
+                <input type="text" id="date-input" class="user-input" placeholder="[Date]">.
+                As your faithful admirer, I long to dine at 
+                <input type="text" id="time-input" class="user-input" placeholder="[Time]"> with you.
+                Please allow me to add:
+                <input type="text" id="note-input" class="user-input" placeholder="[Your Addition (Love) Note]">
+            </p>
+            <p>Your artistry turns mere food into magic, and I await your reply with bated breath.</p>
+            <p style="width :100%;">Yours most humbly,<br> <input type="text" id="name-input" class="user-input" placeholder="[Name]"></p>
+
+            <h2 class="menu-category">Menu</h2>
+            <div id="selected-menu-items"></div>
+
+            <button id="all-set">All Set <span id="cart-count-summary">0</span></button>
+        </main>
+
+        <!-- Floating Buttons -->
+        <div class="operation">
+            <hr>
+            <div id="floating-buttons">
+                <button id="scroll-up">^</button>
+                <button id="scroll-down">^</button>
+                <button id="all-set">All Set<span id="cart-count">0</span></button>
+            </div>
+        </div>
+    </section>
+</body>
 </html>

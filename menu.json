@@ -1,0 +1,720 @@
+{
+    "protein_entree": {
+        "beef": [
+            {
+                "name": "Tomato Sliced Beef",
+                "cname": "番茄肥牛",
+                "category": "entree dish",
+                "sub_category": "beef",
+                "spicy_level": 0,
+                "ingredients": "Beef, Tomato, Onion",
+                "cingredients": "肥牛、番茄、洋葱",
+                "recommendation": 1.0
+            },
+            {
+                "name": "Teriyaki Sliced Beef",
+                "cname": "照烧肥牛",
+                "category": "entree dish",
+                "sub_category": "beef",
+                "spicy_level": 0,
+                "ingredients": "Beef, Teriyaki Sauce, Onion",
+                "cingredients": "肥牛、照烧酱、洋葱",
+                "recommendation": null
+            },
+            {
+                "name": "Pickled Chili Enoki Mushroom Sliced Beef",
+                "cname": "酸汤金针菇肥牛",
+                "category": "entree dish",
+                "sub_category": "beef",
+                "spicy_level": 1,
+                "ingredients": "Beef, Pickled Chili, Enoki Mushroom, Cabbage",
+                "cingredients": "肥牛、泡椒、金针菇、娃娃菜",
+                "recommendation": 1.0
+            },
+            {
+                "name": "Black Pepper Egg-Wrapped Sliced Beef",
+                "cname": "黑胡椒抱蛋肥牛",
+                "category": "entree dish",
+                "sub_category": "beef",
+                "spicy_level": 0,
+                "ingredients": "Beef, Black Pepper, Egg",
+                "cingredients": "肥牛、黑胡椒、鸡蛋",
+                "recommendation": null
+            },
+            {
+                "name": "Hot and Sour Coriander Sliced Beef",
+                "cname": "酸辣香菜肥牛",
+                "category": "entree dish",
+                "sub_category": "beef",
+                "spicy_level": 0,
+                "ingredients": "Beef, Coriander, Chili, Vinegar",
+                "cingredients": "肥牛、香菜、辣椒、醋",
+                "recommendation": null
+            },
+            {
+                "name": "Spicy Shredded Beef",
+                "cname": "麻辣牛肉丝",
+                "category": "entree dish",
+                "sub_category": "beef",
+                "spicy_level": 0,
+                "ingredients": "Shredded Beef, Chili, Sichuan Pepper",
+                "cingredients": "牛肉丝、辣椒、花椒",
+                "recommendation": null
+            },
+            {
+                "name": "Tomato Beef Brisket",
+                "cname": "番茄牛腩",
+                "category": "entree dish",
+                "sub_category": "beef",
+                "spicy_level": 0,
+                "ingredients": "Beef Brisket, Tomato, Onion",
+                "cingredients": "牛腩、番茄、洋葱",
+                "recommendation": 1.0
+            },
+            {
+                "name": "Braised Beef Brisket",
+                "cname": "红烧牛腩",
+                "category": "entree dish",
+                "sub_category": "beef",
+                "spicy_level": 0,
+                "ingredients": "Beef Brisket, Soy Sauce, Sugar, Star Anise",
+                "cingredients": "牛腩、酱油、糖、八角",
+                "recommendation": null
+            },
+            {
+                "name": "Peppery Tripe",
+                "cname": "椒麻牛肚",
+                "category": "entree dish",
+                "sub_category": "beef",
+                "spicy_level": 0,
+                "ingredients": "Tripe, Chili, Green Pepper",
+                "cingredients": "牛肚、辣椒、青椒",
+                "recommendation": 1.0
+            },
+            {
+                "name": "Braised Beef Tripe",
+                "cname": "红烧牛肚",
+                "category": "entree dish",
+                "sub_category": "beef",
+                "spicy_level": 0,
+                "ingredients": "Tripe, Soy Sauce, Sugar, Star Anise",
+                "cingredients": "牛肚、酱油、糖、八角",
+                "recommendation": null
+            }
+        ],
+        "pork": [
+            {
+                "name": "Sweet and Sour Pork Ribs",
+                "cname": "糖醋小排",
+                "category": "entree dish",
+                "sub_category": "pork",
+                "spicy_level": 0,
+                "ingredients": "Pork Ribs, Sugar, Vinegar, Soy Sauce",
+                "cingredients": "排骨、糖、醋、酱油",
+                "recommendation": 1.0
+            },
+            {
+                "name": "Braised Pork Ribs",
+                "cname": "红烧小排",
+                "category": "entree dish",
+                "sub_category": "pork",
+                "spicy_level": 0,
+                "ingredients": "Pork Ribs, Soy Sauce, Sugar",
+                "cingredients": "排骨、酱油、糖",
+                "recommendation": null
+            },
+            {
+                "name": "Braised Pork Chop",
+                "cname": "红烧大排",
+                "category": "entree dish",
+                "sub_category": "pork",
+                "spicy_level": 0,
+                "ingredients": "Pork Chop, Soy Sauce, Sugar",
+                "cingredients": "猪排、酱油、糖",
+                "recommendation": null
+            },
+            {
+                "name": "Pork Ribs with Braised Green Beans",
+                "cname": "排骨炖豆角",
+                "category": "entree dish",
+                "sub_category": "pork",
+                "spicy_level": 0,
+                "ingredients": "Pork Ribs, Green Beans, Soy Sauce",
+                "cingredients": "排骨、豆角、酱油",
+                "recommendation": null
+            },
+            {
+                "name": "Braised Pork Belly",
+                "cname": "红烧肉",
+                "category": "entree dish",
+                "sub_category": "pork",
+                "spicy_level": 0,
+                "ingredients": "Pork Belly, Soy Sauce, Sugar",
+                "cingredients": "五花肉、酱油、糖",
+                "recommendation": null
+            },
+            {
+                "name": "Twice-Cooked Pork",
+                "cname": "回锅肉",
+                "category": "entree dish",
+                "sub_category": "pork",
+                "spicy_level": 0,
+                "ingredients": "Pork Belly, Douban Sauce, Chili",
+                "cingredients": "五花肉、豆瓣酱、辣椒",
+                "recommendation": null
+            },
+            {
+                "name": "Stir-Fried Pork with Chili",
+                "cname": "辣椒炒肉",
+                "category": "entree dish",
+                "sub_category": "pork",
+                "spicy_level": 0,
+                "ingredients": "Pork, Chili",
+                "cingredients": "猪肉、辣椒",
+                "recommendation": null
+            },
+            {
+                "name": "Braised Pork Mince with Green Pepper",
+                "cname": "红烧青椒肉末",
+                "category": "entree dish",
+                "sub_category": "pork",
+                "spicy_level": 0,
+                "ingredients": "Minced Pork, Green Pepper, Soy Sauce",
+                "cingredients": "肉末、青椒、酱油",
+                "recommendation": 1.0
+            },
+            {
+                "name": "Pork Mince with Pickled Green Beans",
+                "cname": "酸豆角肉末",
+                "category": "entree dish",
+                "sub_category": "pork",
+                "spicy_level": 0,
+                "ingredients": "Minced Pork, Pickled Green Beans, Soy Sauce",
+                "cingredients": "肉末、酸豆角、酱油",
+                "recommendation": null
+            },
+            {
+                "name": "Stuffed Green Peppers with Pork",
+                "cname": "青椒酿肉",
+                "category": "entree dish",
+                "sub_category": "pork",
+                "spicy_level": 0,
+                "ingredients": "Green Pepper, Pork, Soy Sauce",
+                "cingredients": "青椒、猪肉、酱油",
+                "recommendation": null
+            },
+            {
+                "name": "Ginger-Glazed Pork",
+                "cname": "姜汁烧肉",
+                "category": "entree dish",
+                "sub_category": "pork",
+                "spicy_level": 0,
+                "ingredients": "Pork, Ginger, Sugar",
+                "cingredients": "猪肉、姜、糖",
+                "recommendation": 1.0
+            },
+            {
+                "name": "Steamed Egg with Pork Patty",
+                "cname": "肉饼炖蛋",
+                "category": "entree dish",
+                "sub_category": "pork",
+                "spicy_level": 0,
+                "ingredients": "Pork, Egg, Ginger",
+                "cingredients": "猪肉、鸡蛋、姜",
+                "recommendation": null
+            }
+        ],
+        "chicken": [
+            {
+                "name": "Teriyaki Chicken",
+                "cname": "照烧鸡",
+                "category": "entree dish",
+                "sub_category": "chicken",
+                "spicy_level": 0,
+                "ingredients": "Chicken, Teriyaki Sauce",
+                "cingredients": "鸡肉、照烧酱",
+                "recommendation": null
+            },
+            {
+                "name": "Garlic Butter Chicken",
+                "cname": "蒜香黄油鸡",
+                "category": "entree dish",
+                "sub_category": "chicken",
+                "spicy_level": 0,
+                "ingredients": "Chicken, Butter, Garlic",
+                "cingredients": "鸡肉、黄油、大蒜",
+                "recommendation": null
+            },
+            {
+                "name": "Korean-Style Chicken",
+                "cname": "韩式鸡",
+                "category": "entree dish",
+                "sub_category": "chicken",
+                "spicy_level": 0,
+                "ingredients": "Chicken, Korean Chili Sauce",
+                "cingredients": "鸡肉、韩国辣酱",
+                "recommendation": null
+            },
+            {
+                "name": "Curry Chicken",
+                "cname": "咖喱鸡",
+                "category": "entree dish",
+                "sub_category": "chicken",
+                "spicy_level": 0,
+                "ingredients": "Chicken, Curry",
+                "cingredients": "鸡肉、咖喱",
+                "recommendation": null
+            },
+            {
+                "name": "Hot and Sour Chicken Slices",
+                "cname": "酸辣鸡片",
+                "category": "entree dish",
+                "sub_category": "chicken",
+                "spicy_level": 0,
+                "ingredients": "Chicken, Chili, Vinegar",
+                "cingredients": "鸡肉、辣椒、醋",
+                "recommendation": null
+            },
+            {
+                "name": "Cola Chicken Wings",
+                "cname": "可乐鸡翅",
+                "category": "entree dish",
+                "sub_category": "chicken",
+                "spicy_level": 0,
+                "ingredients": "Chicken Wings, Cola, Soy Sauce",
+                "cingredients": "鸡翅、可乐、酱油",
+                "recommendation": 1.0
+            },
+            {
+                "name": "New Orleans Chicken Wings",
+                "cname": "新奥尔良鸡翅",
+                "category": "entree dish",
+                "sub_category": "chicken",
+                "spicy_level": 0,
+                "ingredients": "Chicken Wings, New Orleans Seasoning",
+                "cingredients": "鸡翅、新奥尔良烤料",
+                "recommendation": null
+            },
+            {
+                "name": "Yellow Braised Chicken",
+                "cname": "黄焖鸡",
+                "category": "entree dish",
+                "sub_category": "chicken",
+                "spicy_level": 0,
+                "ingredients": "Chicken, Soy Sauce, Sugar",
+                "cingredients": "鸡肉、酱油、糖",
+                "recommendation": null
+            },
+            {
+                "name": "Thai Chicken Feet",
+                "cname": "泰式鸡爪",
+                "category": "entree dish",
+                "sub_category": "chicken",
+                "spicy_level": 0,
+                "ingredients": "Chicken Feet, Thai Sweet Chili Sauce",
+                "cingredients": "鸡爪、泰式甜辣酱",
+                "recommendation": null
+            }
+        ],
+        "seafood": [
+            {
+                "name": "Tomato Shrimp",
+                "cname": "茄汁虾",
+                "category": "entree dish",
+                "sub_category": "seafood",
+                "spicy_level": 0,
+                "ingredients": "Shrimp, Tomato Sauce",
+                "cingredients": "虾、番茄酱",
+                "recommendation": null
+            },
+            {
+                "name": "Garlic Butter Shrimp",
+                "cname": "蒜蓉黄油虾",
+                "category": "entree dish",
+                "sub_category": "seafood",
+                "spicy_level": 0,
+                "ingredients": "Shrimp, Butter, Garlic",
+                "cingredients": "虾、黄油、大蒜",
+                "recommendation": 1.0
+            },
+            {
+                "name": "Hot and Sour Shrimp",
+                "cname": "酸辣虾",
+                "category": "entree dish",
+                "sub_category": "seafood",
+                "spicy_level": 0,
+                "ingredients": "Shrimp, Chili, Vinegar",
+                "cingredients": "虾、辣椒、醋",
+                "recommendation": null
+            }
+        ],
+        "egg": [
+            {
+                "name": "Tomato Scrambled Eggs",
+                "cname": "番茄炒蛋",
+                "category": "entree dish",
+                "sub_category": "egg",
+                "spicy_level": 0,
+                "ingredients": "Egg, Tomato",
+                "cingredients": "鸡蛋、番茄",
+                "recommendation": null
+            },
+            {
+                "name": "Korean Soy Sauce Soft-Boiled Egg",
+                "cname": "韩式酱油溏心蛋",
+                "category": "entree dish",
+                "sub_category": "egg",
+                "spicy_level": 0,
+                "ingredients": "Egg, Soy Sauce",
+                "cingredients": "鸡蛋、酱油",
+                "recommendation": null
+            }
+        ],
+        "vegetable": [
+            {
+                "name": "Hand-Shredded Cabbage",
+                "cname": "手撕包菜",
+                "category": "entree dish",
+                "sub_category": "vegetable",
+                "spicy_level": 0,
+                "ingredients": "Cabbage, Soy Sauce, Vinegar",
+                "cingredients": "包菜、酱油、醋",
+                "recommendation": null
+            },
+            {
+                "name": "Sautéed Cabbage with Vinegar",
+                "cname": "醋溜白菜",
+                "category": "entree dish",
+                "sub_category": "vegetable",
+                "spicy_level": 0,
+                "ingredients": "Cabbage, Vinegar",
+                "cingredients": "白菜、醋",
+                "recommendation": null
+            },
+            {
+                "name": "Hot and Sour Spinach",
+                "cname": "酸辣菠菜",
+                "category": "entree dish",
+                "sub_category": "vegetable",
+                "spicy_level": 0,
+                "ingredients": "Spinach, Chili, Vinegar",
+                "cingredients": "菠菜、辣椒、醋",
+                "recommendation": null
+            },
+            {
+                "name": "Garlic-Flavored Greens",
+                "cname": "蒜香青菜",
+                "category": "entree dish",
+                "sub_category": "vegetable",
+                "spicy_level": 0,
+                "ingredients": "Green Vegetables, Garlic",
+                "cingredients": "青菜、大蒜",
+                "recommendation": null
+            },
+            {
+                "name": "Smashed Cucumber",
+                "cname": "拍黄瓜",
+                "category": "entree dish",
+                "sub_category": "vegetable",
+                "spicy_level": 0,
+                "ingredients": "Cucumber, Garlic, Vinegar",
+                "cingredients": "黄瓜、大蒜、醋",
+                "recommendation": null
+            },
+            {
+                "name": "Butter-Roasted Mushrooms",
+                "cname": "黄油烤蘑菇",
+                "category": "entree dish",
+                "sub_category": "vegetable",
+                "spicy_level": 0,
+                "ingredients": "Mushroom, Butter",
+                "cingredients": "蘑菇、黄油",
+                "recommendation": null
+            }
+        ]
+    },
+    "carb_entree": {
+        "noodles": [
+            {
+                "name": "Korean Sprite Noodles",
+                "cname": "韩式雪碧拌面",
+                "category": "main",
+                "sub_category": "noodles",
+                "spicy_level": 0,
+                "ingredients": "Korean Chili Sauce, Sprite, Noodles",
+                "cingredients": "韩国辣酱、雪碧、面条",
+                "recommendation": null
+            },
+            {
+                "name": "Creamy Kimchi Bacon Pasta",
+                "cname": "奶油泡菜培根意面",
+                "category": "main",
+                "sub_category": "noodles",
+                "spicy_level": 0,
+                "ingredients": "Bacon, Kimchi, Cream",
+                "cingredients": "培根、泡菜、奶油",
+                "recommendation": null
+            },
+            {
+                "name": "Creamy Bacon and Shrimp Pasta",
+                "cname": "奶油培根虾意面",
+                "category": "main",
+                "sub_category": "noodles",
+                "spicy_level": 0,
+                "ingredients": "Bacon, Shrimp, Cream",
+                "cingredients": "培根、虾、奶油",
+                "recommendation": null
+            },
+            {
+                "name": "Tomato Meat Sauce Pasta",
+                "cname": "番茄肉酱意面",
+                "category": "main",
+                "sub_category": "noodles",
+                "spicy_level": 0,
+                "ingredients": "Meat Sauce, Tomato, Pasta",
+                "cingredients": "肉酱、番茄、意面",
+                "recommendation": null
+            },
+            {
+                "name": "Scallion Oil Noodles",
+                "cname": "葱油面",
+                "category": "main",
+                "sub_category": "noodles",
+                "spicy_level": 0,
+                "ingredients": "Noodles, Scallion Oil",
+                "cingredients": "面条、葱油",
+                "recommendation": null
+            },
+            {
+                "name": "Braised Noodles with Green Beans",
+                "cname": "豆角焖面",
+                "category": "main",
+                "sub_category": "noodles",
+                "spicy_level": 0,
+                "ingredients": "Noodles, Green Beans, Soy Sauce",
+                "cingredients": "面条、豆角、酱油",
+                "recommendation": null
+            }
+        ],
+        "rice bowl": [
+            {
+                "name": "Lamb Rice",
+                "cname": "羊肉饭",
+                "category": "main",
+                "sub_category": "rice bowl",
+                "spicy_level": 0,
+                "ingredients": "Lamb, Rice",
+                "cingredients": "羊肉、大米",
+                "recommendation": 1.0
+            },
+            {
+                "name": "Shanghai Vegetable Rice",
+                "cname": "上海菜饭",
+                "category": "main",
+                "sub_category": "rice bowl",
+                "spicy_level": 0,
+                "ingredients": "Vegetables, Rice",
+                "cingredients": "青菜、大米",
+                "recommendation": 1.0
+            },
+            {
+                "name": "Fried Rice with Egg",
+                "cname": "蛋炒饭",
+                "category": "main",
+                "sub_category": "rice bowl",
+                "spicy_level": 0,
+                "ingredients": "Egg, Rice",
+                "cingredients": "鸡蛋、大米",
+                "recommendation": null
+            },
+            {
+                "name": "Spam Rice Ball",
+                "cname": "午餐肉饭团",
+                "category": "main",
+                "sub_category": "rice bowl",
+                "spicy_level": 0,
+                "ingredients": "Spam, Rice",
+                "cingredients": "午餐肉、米饭",
+                "recommendation": null
+            },
+            {
+                "name": "Eel and Hot Spring Egg Rice",
+                "cname": "鳗鱼温泉蛋饭",
+                "category": "main",
+                "sub_category": "rice bowl",
+                "spicy_level": 0,
+                "ingredients": "Eel, Soft-Boiled Egg, Rice",
+                "cingredients": "鳗鱼、温泉蛋、米饭",
+                "recommendation": null
+            }
+        ],
+        "porridge": [
+            {
+                "name": "Century Egg Shrimp and Ham Congee",
+                "cname": "皮蛋鲜虾火腿粥",
+                "category": "main",
+                "sub_category": "porridge",
+                "spicy_level": 0,
+                "ingredients": "Century Egg, Shrimp, Ham, Congee",
+                "cingredients": "皮蛋、虾、火腿、米粥",
+                "recommendation": null
+            }
+        ],
+        "rice cake": [
+            {
+                "name": "Cabbage and Shredded Pork Rice Cake",
+                "cname": "白菜肉丝年糕",
+                "category": "main",
+                "sub_category": "rice cake",
+                "spicy_level": 0,
+                "ingredients": "Rice Cake, Cabbage, Pork",
+                "cingredients": "年糕、白菜、猪肉",
+                "recommendation": null
+            }
+        ],
+        "pancake": [
+            {
+                "name": "Egg Pancake",
+                "cname": "鸡蛋手抓饼",
+                "category": "main",
+                "sub_category": "pancake",
+                "spicy_level": 0,
+                "ingredients": "Egg, Flour",
+                "cingredients": "鸡蛋、面粉",
+                "recommendation": null
+            }
+        ]
+    },
+    "soup": {
+        "beef": [
+            {
+                "name": "Tomato Beef Brisket Soup",
+                "cname": "番茄牛腩汤",
+                "category": "soup",
+                "sub_category": "beef",
+                "spicy_level": 0,
+                "ingredients": "Beef Brisket, Tomato",
+                "cingredients": "牛腩、番茄",
+                "recommendation": null
+            },
+            {
+                "name": "Clear Stewed Beef Bone Soup",
+                "cname": "清炖牛骨汤",
+                "category": "soup",
+                "sub_category": "beef",
+                "spicy_level": 0,
+                "ingredients": "Beef Bone, Ginger, Clear Soup",
+                "cingredients": "牛骨、姜、清汤",
+                "recommendation": null
+            },
+            {
+                "name": "Clear Stewed Oxtail Soup",
+                "cname": "清炖牛尾汤",
+                "category": "soup",
+                "sub_category": "beef",
+                "spicy_level": 0,
+                "ingredients": "Oxtail, Ginger, Clear Soup",
+                "cingredients": "牛尾、姜、清汤",
+                "recommendation": 1.0
+            }
+        ],
+        "pork": [
+            {
+                "name": "Radish and Pork Ribs Soup",
+                "cname": "萝卜小排汤",
+                "category": "soup",
+                "sub_category": "pork",
+                "spicy_level": 0,
+                "ingredients": "Pork Ribs, White Radish",
+                "cingredients": "排骨、白萝卜",
+                "recommendation": null
+            },
+            {
+                "name": "Kimchi Soup",
+                "cname": "泡菜汤",
+                "category": "soup",
+                "sub_category": "pork",
+                "spicy_level": 0,
+                "ingredients": "Kimchi, Pork Belly, Tofu",
+                "cingredients": "泡菜、五花肉、豆腐",
+                "recommendation": null
+            },
+            {
+                "name": "Meatball Soup",
+                "cname": "肉丸汤",
+                "category": "soup",
+                "sub_category": "pork",
+                "spicy_level": 0,
+                "ingredients": "Meatball, Clear Soup",
+                "cingredients": "肉丸、清汤",
+                "recommendation": null
+            },
+            {
+                "name": "Borscht",
+                "cname": "罗宋汤",
+                "category": "soup",
+                "sub_category": "pork",
+                "spicy_level": 0,
+                "ingredients": "Beef, Tomato, Cabbage",
+                "cingredients": "牛肉、番茄、卷心菜",
+                "recommendation": null
+            },
+            {
+                "name": "Pork Trotter Soup",
+                "cname": "蹄花汤",
+                "category": "soup",
+                "sub_category": "pork",
+                "spicy_level": 0,
+                "ingredients": "Pork Trotter, Clear Soup",
+                "cingredients": "猪蹄、清汤",
+                "recommendation": null
+            }
+        ],
+        "chicken": [
+            {
+                "name": "Clear Stewed Chicken Soup",
+                "cname": "清炖鸡汤",
+                "category": "soup",
+                "sub_category": "chicken",
+                "spicy_level": 0,
+                "ingredients": "Chicken, Ginger, Clear Soup",
+                "cingredients": "鸡肉、姜、清汤",
+                "recommendation": null
+            }
+        ],
+        "seafood": [
+            {
+                "name": "Korean Octopus Soup",
+                "cname": "韩式八爪鱼汤",
+                "category": "soup",
+                "sub_category": "seafood",
+                "spicy_level": 0,
+                "ingredients": "Octopus, Korean Chili Sauce",
+                "cingredients": "八爪鱼、韩国辣酱",
+                "recommendation": null
+            }
+        ],
+        "vegetarian": [
+            {
+                "name": "Tofu and Cabbage Soup",
+                "cname": "豆腐白菜汤",
+                "category": "soup",
+                "sub_category": "vegetarian",
+                "spicy_level": 0,
+                "ingredients": "Tofu, Cabbage",
+                "cingredients": "豆腐、白菜",
+                "recommendation": null
+            },
+            {
+                "name": "Salted Egg Yolk Tofu Pot",
+                "cname": "咸蛋黄豆腐煲",
+                "category": "soup",
+                "sub_category": "vegetarian",
+                "spicy_level": 0,
+                "ingredients": "Salted Egg Yolk, Tofu",
+                "cingredients": "咸蛋黄、豆腐",
+                "recommendation": null
+            }
+        ]
+    }
+}
