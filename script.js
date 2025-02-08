@@ -113,7 +113,7 @@ $(document).ready(function () {
         $("#selected-menu-items").empty();
         cart.forEach(itemId => {
             $("#selected-menu-items").append(`
-                <div class="menu-item" data-id="${itemId}">
+                <div class="menu-item2" data-id="${itemId}">
                     <h3>${itemId}</h3>
                     <button class="remove-from-cart" data-id="${itemId}">−</button>
                 </div>
