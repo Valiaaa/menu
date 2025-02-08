@@ -66,8 +66,20 @@ body {
 }
 
 .button-wrapper {
-    width: 40px; /* 或其他你想要的大小 */
-    height: 40px;
+    width: 24px;
+    height: 24px;
+    border: 1.5px solid var(--purple);
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button-wrapper2 {
+    width: 28px;
+    height: 28px;
+    border: 1.5px solid var(--purple);
     border-radius: 50%;
     overflow: hidden;
     display: flex;
@@ -84,11 +96,10 @@ body {
 
 .language-toggle, #back-to-menu {
     background: none;
-    border: var(--lineWidth) solid var(--purple);
+    border: none;
     color: var(--purple);
     width: var(--buttonSize);
     height: var(--buttonSize);
-    border-radius: var(--buttonSize);
     margin-left: 10px;
     cursor: pointer;
     transition: background-color 0.3s;
@@ -184,14 +195,14 @@ body {
 /* 加号（无填充，有边框） */
 .border-button {
     background-color: transparent;
-    border: 1.5px solid var(--purple);
+    border: none;
     color: var(--purple);
 }
 
 /* 减号（有填充） */
 .filled-button, .remove-from-cart {
     background-color: var(--purple);
-    border: 2px solid var(--purple);
+    border: none;
     color: var(--brown);
 }
 
@@ -230,7 +241,7 @@ body {
 #floating-buttons button {
     background-color: transparent;
     color: var(--purple);
-    border: 2px solid var(--purple);
+    border: none;
     font-family: math;
     font-weight: 400;
     font-size: 30px;
