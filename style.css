@@ -3,6 +3,7 @@
     --purple: #D9DBFF;
     --lineWidth: 1.5px;
     --buttonSize: 24px;
+    --marginLR: 40px;
 }
 
 @font-face {
@@ -43,7 +44,7 @@ body {
 }
 
 #order-summary main{
-    padding: 12px 40px;
+    padding: 12px var(--marginLR);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -64,13 +65,20 @@ body {
     z-index: -1;
 }
 
-.language-toggle {
+.languageWrap {
+    position: absolute;
+    top: 28px;
+    right:var(--marginLR);
+    display: flex;
+}
+
+.language-toggle, #back-to-menu {
     background: none;
     border: var(--lineWidth) solid var(--purple);
     color: var(--purple);
     width: var(--buttonSize);
     height: var(--buttonSize);
-    border-radius: 40px;
+    border-radius: var(--buttonSize);
     margin-left: 10px;
     cursor: pointer;
     transition: background-color 0.3s;
@@ -99,7 +107,7 @@ body {
     font-size: 14px;
     width: fit-content;
     padding: 5px 24px;
-    border-radius: 40px;
+    border-radius: var(--buttonSize);
     border: 1.5px solid var(--purple);
 }
 
@@ -111,8 +119,8 @@ body {
 }
 
 .menu-item {
-    width: calc(100% - 40px);
-    padding: 12px 40px;
+    width: calc(100% - var(--marginLR));
+    padding: 12px var(--marginLR);
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -148,7 +156,7 @@ body {
 }
 
 .menu-item button {
-    border-radius: 40px;
+    border-radius: var(--buttonSize);
     width: 24px !important;
     height: 24px;
     cursor: pointer;
@@ -160,7 +168,7 @@ body {
 }
 
 .menu-divider {
-    height: 40px;
+    height: var(--marginLR);
 }
 
 /* 加号（无填充，有边框） */
@@ -179,8 +187,7 @@ body {
 
 /* Language */
 #language-en, #language-zh {
-    position: absolute;
-    float: right;
+
 }
 
 /* Floating Buttons */
@@ -205,7 +212,7 @@ body {
     padding-top: 20px;
     padding-bottom: 30px;
     padding-left: 36px;
-    padding-right: 40px;
+    padding-right: var(--marginLR);
     display: flex;
     justify-content: space-between;
 }
@@ -216,11 +223,11 @@ body {
     border: 2px solid var(--purple);
     font-family: math;
     font-weight: 400;
-    border-radius: 40px;
+    font-size: 30px;
+    border-radius: var(--buttonSize);
     width: 28px;
     height: 28px;
     cursor: pointer;
-    font-size: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -249,7 +256,7 @@ body {
     justify-content: center;
     align-items: center;
     font-size: 13px;
-    border-radius: 40px;
+    border-radius: var(--buttonSize);
 }
 
 #scroll-up {
@@ -274,6 +281,13 @@ body {
 }
 #back-to-menu {
     position: fixed;
+    font-family: math;
+    font-weight: 400;
+    font-size: 28px;
+    top: 28px;
+    left: calc(var(--marginLR) - 18px);
+    padding-top: -6px;
+    transform: rotate(270deg);
 }
 
 .user-input {
