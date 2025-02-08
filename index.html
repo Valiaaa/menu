@@ -15,8 +15,8 @@
             <div class="menu-header">
                 <img src="header.png" alt="Menu Header">
                 <div class="languageWrap">
-                    <div class="button-wrapper"><button id="language-en" class="language-toggle active">EN</button></div>
                     <div class="button-wrapper"><button id="language-zh" class="language-toggle">中</button></div>
+                    <div class="button-wrapper"><button id="language-en" class="language-toggle active">EN</button></div>
                 </div>
             </div>
         </header>
@@ -42,28 +42,28 @@
     <section id="order-summary" style="display: none;">
         <header>
             <div class="menu-header">
-                <div class="button-wrapper"><button id="back-to-menu">^</button></div>
                 <img src="header.png" alt="Menu Header">
+                <div class="button-wrapper" id="back-button-style"><button id="back-to-menu">^</button></div>
                 <div class="languageWrap">
-                    <div class="button-wrapper"><button id="language-en" class="language-toggle active">EN</button></div>
                     <div class="button-wrapper"><button id="language-zh" class="language-toggle">中</button></div>
+                    <div class="button-wrapper"><button id="language-en" class="language-toggle active">EN</button></div>
                 </div>
             </div>
         </header>
 
         <main>
             <h2 class="menu-category">Your Info</h2>
-            <p>Dear Valia, with trembling hands, I humbly ask for your culinary grace on 
+            <h3>Dear Valia, with trembling hands, I humbly ask for your culinary grace on 
                 <input type="text" id="date-input" class="user-input" placeholder="[Date]">.
                 As your faithful admirer, I long to dine at 
                 <input type="text" id="time-input" class="user-input" placeholder="[Time]"> with you.
                 Please allow me to add:
                 <input type="text" id="note-input" class="user-input" placeholder="[Your Addition (Love) Note]">
-            </p>
-            <p>Your artistry turns mere food into magic, and I await your reply with bated breath.</p>
-            <p style="width :100%;">Yours most humbly,<br> <input type="text" id="name-input" class="user-input" placeholder="[Name]"></p>
+            </h3><br>
+            <h3>Your artistry turns mere food into magic, and I await your reply with bated breath.</h3><br>
+            <h3 style="width :100%;">Yours most humbly,<br> <input type="text" id="name-input" class="user-input" placeholder="[Name]"></h3>
 
-            <h2 class="menu-category">Menu</h2>
+            <h2 class="menu-category" style="margin-top: 60px;">Menu</h2>
             <div id="selected-menu-items"></div>
         </main>
 
