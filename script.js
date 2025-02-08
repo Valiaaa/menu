@@ -57,6 +57,11 @@ $(document).ready(function () {
         displayMenu();
     });
 
+    // 回到顶端
+    function scrollToTop() {
+        $("html, body").animate({ scrollTop: 0 }, "fast");
+    }    
+
     // 添加/移除菜单项到购物车
     $(document).on("click", ".toggle-cart", function () {
         const itemId = $(this).attr("data-id");
@@ -92,13 +97,14 @@ $(document).ready(function () {
     $("#view-cart").click(function () {
         $("body").css("transition", "background-color 0.5s ease");
         $("body").css("background-color", "#4F401A");
-
+    
         setTimeout(() => {
             $("#menu-section").hide();
             $("#order-summary").fadeIn(600);
             loadOrderSummary();
+            scrollToTop(); // ← 添加这行，进入新页面时回到顶端
         }, 600);
-    });
+    });    
 
     // 返回菜单界面
     $("#back-to-menu, #back-to-menu2").click(function () {
@@ -106,9 +112,10 @@ $(document).ready(function () {
         setTimeout(() => {
             $("body").css("background-color", "#4F401A"); // 恢复原始背景色
             $("#menu-section").fadeIn(400);
-            displayMenu(); // **这里新增 displayMenu() 以刷新菜品**
+            displayMenu();
+            scrollToTop(); // ← 添加这行，返回菜单页面时回到顶端
         }, 400);
-    });    
+    });      
 
     // 加载订单页面内容
     function loadOrderSummary() {
