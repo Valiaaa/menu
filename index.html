@@ -16,7 +16,7 @@
                 <img src="header.png" alt="Menu Header">
                 <div class="languageWrap">
                     <div class="button-wrapper"><button id="language-zh" class="language-toggle">中</button></div>
-                    <div class="button-wrapper"><button id="language-en" class="language-toggle active">EN</button></div>
+                    <div class="button-wrapper"><button id="language-en" class="language-toggle active" style="padding-right: 24px;">EN</button></div>
                 </div>
             </div>
         </header>
@@ -73,6 +73,34 @@
             <div id="floating-buttons">
                 <div class="button-wrapper2"><button id="back-to-menu2">^</button></div>
                 <button id="all-set">All Set<span id="cart-count">0</span></button>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Receipt Section -->
+    <section id="receipt-section" style="display: none;">
+        <header>
+            <div class="menu-header">
+                <img src="header2.png" alt="Receipt Header">
+            </div>
+        </header>
+
+        <main>
+            <h3 id="receipt-user-info"></h3>
+            <hr>
+            <button class="receipt-section-button">Menu</button>
+            <ol id="receipt-menu-items"></ol>
+            <hr>
+            <button class="receipt-section-button">Ingredients</button>
+            <ul id="receipt-ingredients"></ul>
+        </main>
+
+        <div class="operation">
+            <hr>
+            <div id="floating-buttons">
+                <div class="button-wrapper2"><button id="back-to-summary">◁</button></div>
+                <button id="save-receipt">Save</button>
             </div>
         </div>
     </section>

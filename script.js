@@ -201,5 +201,109 @@ $(document).ready(function () {
             scrollToDivider("down");
         });
     });
+
+
+    // section 3
+    function loadOrderSummary() {
+    $("#selected-menu-items").empty();
+    let ingredientCount = {}; // 统计食材
+
+    cart.forEach(itemId => {
+        let [category, subCategory, index] = itemId.split("-");
+        let item = menuData[category]?.[subCategory]?.[index];
+
+        if (item) {
+            let displayName = currentLanguage === "EN" ? item.name : item.cname;
+            $("#selected-menu-items").append(`
+                <div class="menu-item2">
+                    <h3>${displayName}</h3>
+                    <button class="remove-from-cart" data-id="${itemId}">−</button>
+                </div>
+            `);
+
+            // 统计食材数量
+            item.ingredients.split(", ").forEach(ingredient => {
+                ingredientCount[ingredient] = (ingredientCount[ingredient] || 0) + 1;
+            });
+        }
+    });
+
+    // 显示合并后的食材
+    $("#receipt-ingredients").empty();
+    Object.entries(ingredientCount).forEach(([ingredient, count]) => {
+        $("#receipt-ingredients").append(`<li>${ingredient} * ${count}</li>`);
+    });
+
+    // 显示用户信息
+    $("#receipt-user-info").empty();
+    Object.keys(userInfo).forEach(key => {
+        $("#receipt-user-info").append(`<p>${key.charAt(0).toUpperCase() + key.slice(1)}: ${userInfo[key]}</p>`);
+    });
+}
+
+
+
+    // section 3
+    function loadOrderSummary() {
+        $("#selected-menu-items").empty();
+        let ingredientCount = {}; // 统计食材
+    
+        cart.forEach(itemId => {
+            let [category, subCategory, index] = itemId.split("-");
+            let item = menuData[category]?.[subCategory]?.[index];
+    
+            if (item) {
+                let displayName = currentLanguage === "EN" ? item.name : item.cname;
+                $("#selected-menu-items").append(`
+                    <div class="menu-item2">
+                        <h3>${displayName}</h3>
+                        <button class="remove-from-cart" data-id="${itemId}">−</button>
+                    </div>
+                `);
+    
+                // 统计食材数量
+                item.ingredients.split(", ").forEach(ingredient => {
+                    ingredientCount[ingredient] = (ingredientCount[ingredient] || 0) + 1;
+                });
+            }
+        });
+    
+        // 显示合并后的食材
+        $("#receipt-ingredients").empty();
+        Object.entries(ingredientCount).forEach(([ingredient, count]) => {
+            $("#receipt-ingredients").append(`<li>${ingredient} * ${count}</li>`);
+        });
+    
+        // 显示用户信息
+        $("#receipt-user-info").empty();
+        Object.keys(userInfo).forEach(key => {
+            $("#receipt-user-info").append(`<p>${key.charAt(0).toUpperCase() + key.slice(1)}: ${userInfo[key]}</p>`);
+        });
+    }
+    
+    $("#all-set").click(function () {
+        $("#order-summary").fadeOut(400);
+        setTimeout(() => {
+            $("#receipt-section").fadeIn(400);
+            scrollToTop();
+        }, 400);
+    });
+
+    $("#back-to-summary").click(function () {
+        $("#receipt-section").fadeOut(400);
+        setTimeout(() => {
+            $("#order-summary").fadeIn(400);
+            scrollToTop();
+        }, 400);
+    });
+
+    $("#save-receipt").click(function () {
+        html2canvas(document.body).then(canvas => {
+            let link = document.createElement("a");
+            link.download = "receipt.png";
+            link.href = canvas.toDataURL("image/png");
+            link.click();
+        });
+    });    
      
 });

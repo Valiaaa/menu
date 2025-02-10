@@ -94,7 +94,6 @@ body {
     color: var(--purple);
     width: var(--buttonSize);
     height: var(--buttonSize);
-    margin-left: 10px;
     cursor: pointer;
     transition: background-color 0.3s;
 }
@@ -323,4 +322,12 @@ h3 {
 
 #selected-menu-items {
     width: 100%;
+}
+
+
+/* Section 3*/
+#receipt-section {
+    background-color: white;
+    color: black;
+    padding-bottom: 100px;
 }
