@@ -96,7 +96,7 @@ $(document).ready(function () {
     // "View Menu" 按钮点击，渐变进入新页面
     $("#view-cart").click(function () {
         $("body").css("transition", "background-color 0.5s ease");
-        $("body").css("background-color", "#4F401A");
+        $("body").css("background-color", "var(--brown)");
     
         setTimeout(() => {
             $("#menu-section").hide();
@@ -110,7 +110,7 @@ $(document).ready(function () {
     $("#back-to-menu, #back-to-menu2").click(function () {
         $("#order-summary").fadeOut(400);
         setTimeout(() => {
-            $("body").css("background-color", "#4F401A"); // 恢复原始背景色
+            $("body").css("background-color", "var(--brown)"); // 恢复原始背景色
             $("#menu-section").fadeIn(400);
             displayMenu();
             scrollToTop(); // ← 添加这行，返回菜单页面时回到顶端
@@ -235,7 +235,7 @@ $(document).ready(function () {
     });
 
     // 显示用户信息
-    $("#receipt-user-info").empty();
+    $("#receipt-user-info").empty();xw
     Object.keys(userInfo).forEach(key => {
         $("#receipt-user-info").append(`<p>${key.charAt(0).toUpperCase() + key.slice(1)}: ${userInfo[key]}</p>`);
     });
@@ -244,42 +244,43 @@ $(document).ready(function () {
 
 
     // section 3
-    function loadOrderSummary() {
-        $("#selected-menu-items").empty();
-        let ingredientCount = {}; // 统计食材
-    
+    function loadReceiptSection() {
+        $("#receipt-user-info").empty();
+        $("#receipt-menu-items").empty();
+
+        // 显示用户输入的信息
+        $("#receipt-user-info").append(`
+            <p>Date: ${userInfo.date || "[Not specified]"}</p>
+            <p>Time: ${userInfo.time || "[Not specified]"}</p>
+            <p>Note: ${userInfo.note || "[Not specified]"}</p>
+            <p>Name: ${userInfo.name || "[Not specified]"}</p>
+        `);
+
+        // 显示已点菜单项（不含删除按钮）
         cart.forEach(itemId => {
             let [category, subCategory, index] = itemId.split("-");
             let item = menuData[category]?.[subCategory]?.[index];
-    
+
             if (item) {
                 let displayName = currentLanguage === "EN" ? item.name : item.cname;
-                $("#selected-menu-items").append(`
-                    <div class="menu-item2">
-                        <h3>${displayName}</h3>
-                        <button class="remove-from-cart" data-id="${itemId}">−</button>
-                    </div>
+                $("#receipt-menu-items").append(`
+                    <li>${displayName}</li>
                 `);
-    
-                // 统计食材数量
-                item.ingredients.split(", ").forEach(ingredient => {
-                    ingredientCount[ingredient] = (ingredientCount[ingredient] || 0) + 1;
-                });
             }
         });
-    
-        // 显示合并后的食材
-        $("#receipt-ingredients").empty();
-        Object.entries(ingredientCount).forEach(([ingredient, count]) => {
-            $("#receipt-ingredients").append(`<li>${ingredient} * ${count}</li>`);
-        });
-    
-        // 显示用户信息
-        $("#receipt-user-info").empty();
-        Object.keys(userInfo).forEach(key => {
-            $("#receipt-user-info").append(`<p>${key.charAt(0).toUpperCase() + key.slice(1)}: ${userInfo[key]}</p>`);
-        });
     }
+
+    // 监听 "All Set" 按钮，切换到收据页面
+    $("#all-set").click(function () {
+        $("#order-summary").fadeOut(400);
+        setTimeout(() => {
+            $("#receipt-section").fadeIn(400);
+            $("body").addClass("receipt-active");
+            loadReceiptSection();
+            scrollToTop();
+        }, 400);
+    });
+
     
     $("#all-set").click(function () {
         $("#order-summary").fadeOut(400);
@@ -293,6 +294,7 @@ $(document).ready(function () {
         $("#receipt-section").fadeOut(400);
         setTimeout(() => {
             $("#order-summary").fadeIn(400);
+            $("body").removeClass("receipt-active");
             scrollToTop();
         }, 400);
     });

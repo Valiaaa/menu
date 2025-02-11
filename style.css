@@ -43,7 +43,11 @@ body {
     color: var(--purple);
 }
 
-#order-summary main{
+p, ol{
+    margin: 0;
+}
+
+#order-summary main {
     padding: 12px var(--marginLR);
     display: flex;
     flex-direction: column;
@@ -250,7 +254,7 @@ h3 {
     transition: transform 0.2s;
 }
 
-#view-cart, #all-set {
+#view-cart, #all-set, #save-receipt {
     background-color: var(--purple) !important;
     color: var(--brown) !important;
     width: fit-content !important;
@@ -261,6 +265,10 @@ h3 {
     display: flex;
     align-items: center;
     gap: 12px;
+}
+
+#save-receipt {
+    padding: 10px 20px 10px 20px;
 }
 
 #view-cart span, #cart-count {
@@ -284,7 +292,7 @@ h3 {
     transform: rotate(180deg);
 }
 
-#back-to-menu2 {
+#back-to-menu2, #back-to-summary {
     padding-top: 12px;
     transform: rotate(270deg);
 }
@@ -292,8 +300,8 @@ h3 {
 
 
 /* Page 2*/
-#order-summary {
-    padding-bottom: 100px;
+#order-summary, #receipt-section {
+    padding-bottom: 104px;
 }
 
 #back-to-menu {
@@ -326,8 +334,29 @@ h3 {
 
 
 /* Section 3*/
-#receipt-section {
-    background-color: white;
-    color: black;
-    padding-bottom: 100px;
+body.receipt-active {
+    --brown: white; /* 变成白色 */
+    --purple: black;    /* 文字变黑 */
+}
+
+.centerwrap {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#receipt-section main {
+    padding: 12px var(--marginLR);
+}
+
+#receipt-section main hr {
+    border-top: 2px dashed var(--purple);
+}
+
+.receipt-header {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
 }
