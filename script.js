@@ -1,4 +1,3 @@
-
 $(document).ready(function () {
     let menuData = {};
     let currentLanguage = "EN"; // 默认语言
@@ -16,46 +15,116 @@ $(document).ready(function () {
     // 显示菜单
     function displayMenu() {
         $("#menu-items").empty();
-
         Object.keys(menuData).forEach(category => {
-            let categoryTitle = "";
-            if (category === "protein_entree") categoryTitle = "Protein Entree";
-            if (category === "carb_entree") categoryTitle = "Carb Entree";
-            if (category === "soup") categoryTitle = "Soup";
-
+            let categoryTitle = currentLanguage === "EN" ? category : category; 
             $("#menu-items").append(`<h2 class="menu-category">${categoryTitle}</h2>`);
 
             Object.keys(menuData[category]).forEach(subCategory => {
-                $("#menu-items").append();
-
                 menuData[category][subCategory].forEach((item, index) => {
-                    const itemId = category + "-" + subCategory + "-" + index;
-
+                    const itemId = `${category}-${subCategory}-${index}`;
                     $("#menu-items").append(`
                         <div class="menu-item" data-id="${itemId}">
                             <div class="textPt">
                                 <h3>${currentLanguage === "EN" ? item.name : item.cname}</h3>
                                 <p>${currentLanguage === "EN" ? item.ingredients : item.cingredients}</p>
                             </div>
-                            <div class="button-wrapper"><button class="toggle-cart" data-id="${itemId}">+</button></div>
+                            <div class="button-wrapper">
+                                <button class="toggle-cart" data-id="${itemId}">+</button>
+                            </div>
                         </div>
                     `);
                 });
-
                 $("#menu-items").append(`<div class="menu-divider">`);
             });
         });
-
         updateCartButtons();
     }
 
-    // 语言切换
+    // 监听语言切换
     $(".language-toggle").click(function () {
         $(".language-toggle").removeClass("active");
         $(this).addClass("active");
         currentLanguage = $(this).attr("id") === "language-en" ? "EN" : "ZH";
-        displayMenu();
+        updateAllPages();
     });
+
+    // 更新所有页面内容
+    function updateAllPages() {
+        displayMenu();
+        updateOrderSummaryText();
+        updateSelectedMenu();
+        updateReceipt();
+        syncLanguageButtonState();
+    }
+
+    // 更新订单页面 Summary Text
+    function updateOrderSummaryText() {
+        let content = currentLanguage === "EN" ?
+            `<h3>Dear Valia, with trembling hands, I humbly ask for your culinary grace on
+            <input type="text" id="date-input" class="user-input" placeholder="[Date]">.
+            As your faithful admirer, I long to dine at
+            <input type="text" id="time-input" class="user-input" placeholder="[Time]"> with you.
+            Please allow me to add:
+            <input type="text" id="note-input" class="user-input" placeholder="[Your Addition (Love) Note]">.
+            </h3>
+            <h3>Your artistry turns mere food into magic, and I await your reply with bated breath.</h3>
+            <h3 style="width:100%;">Yours most humbly,<br> 
+            <input type="text" id="name-input" class="user-input" placeholder="[Name]"></h3>` 
+        : 
+            `<h3>致亲爱的 Valia，怀着忐忑之心，我斗胆请求您在
+            <input type="text" id="date-input" class="user-input" placeholder="[请填写日期]"> 这天赐予我美食之恩。
+            鄙人名为
+            <input type="text" id="name-input" class="user-input" placeholder="[请填写姓名]">，
+            希望于
+            <input type="text" id="time-input" class="user-input" placeholder="[请填写时间/午餐/晚餐]"> 共享美味。
+            另附心底小语：
+            <input type="text" id="note-input" class="user-input" placeholder="[请填写寄语]">。
+            </h3>
+            <h3>您的厨艺化凡为仙，我屏息以待您的答复。</h3>
+            <h3 style="width:100%;">卑微之食客上<br> 
+            <input type="text" id="name-input" class="user-input" placeholder="[您的敬仰者]"></h3>`;
+
+        $("#order-summary-content").html(content);
+    }
+
+    // 更新已选菜单项（订单页面）
+    function updateSelectedMenu() {
+        $("#selected-menu-items").empty();
+        cart.forEach(itemId => {
+            let [category, subCategory, index] = itemId.split("-");
+            let item = menuData[category]?.[subCategory]?.[index];
+    
+            if (item) {
+                let displayName = currentLanguage === "EN" ? item.name : item.cname;
+                $("#selected-menu-items").append(`
+                    <div class="menu-item2">
+                        <h3>${displayName}</h3>
+                        <button class="remove-from-cart" data-id="${itemId}">−</button>
+                    </div>
+                `);
+            }
+        });
+    }    
+
+    // 更新收据页面
+    function updateReceipt() {
+        $("#receipt-user-info").empty();
+        $("#receipt-menu-items").empty();
+        $("#receipt-user-info").append(`
+            <p>Date: ${userInfo.date || "[Not specified]"}</p>
+            <p>Time: ${userInfo.time || "[Not specified]"}</p>
+            <p>Note: ${userInfo.note || "[Not specified]"}</p>
+            <p>Name: ${userInfo.name || "[Not specified]"}</p>
+        `);
+        cart.forEach(itemId => {
+            let [category, subCategory, index] = itemId.split("-");
+            let item = menuData[category]?.[subCategory]?.[index];
+            if (item) {
+                $("#receipt-menu-items").append(`<li>${item.name} (${item.cname})</li>`);
+            }
+        });
+    }
+
 
     // 回到顶端
     function scrollToTop() {
@@ -101,10 +170,11 @@ $(document).ready(function () {
         setTimeout(() => {
             $("#menu-section").hide();
             $("#order-summary").fadeIn(600);
-            loadOrderSummary();
-            scrollToTop(); // ← 添加这行，进入新页面时回到顶端
+            syncLanguageButtonState(); // 先同步语言按钮状态
+            loadOrderSummary(); // 再加载订单信息
+            scrollToTop();
         }, 600);
-    });    
+    });              
 
     // 返回菜单界面
     $("#back-to-menu, #back-to-menu2").click(function () {
@@ -112,12 +182,12 @@ $(document).ready(function () {
         setTimeout(() => {
             $("body").css("background-color", "var(--brown)"); // 恢复原始背景色
             $("#menu-section").fadeIn(400);
-            displayMenu();
-            scrollToTop(); // ← 添加这行，返回菜单页面时回到顶端
+            syncLanguageButtonState(); // 确保语言继承
+            displayMenu(); // 先同步语言，再更新菜单
+            scrollToTop();
         }, 400);
-    });      
+    });              
 
-    // 加载订单页面内容
     function loadOrderSummary() {
         $("#selected-menu-items").empty();
         cart.forEach(itemId => {
@@ -129,17 +199,20 @@ $(document).ready(function () {
                 $("#selected-menu-items").append(`
                     <div class="menu-item2">
                         <h3>${displayName}</h3>
-                        <button class="remove-from-cart" data-id="${itemId}">−</button>
                     </div>
                 `);
             }
         });
     
+        // 更新 Summary Text
+        updateOrderSummary();
+    
+        // 确保用户输入的值保持
         $("#date-input").val(userInfo.date);
         $("#time-input").val(userInfo.time);
         $("#note-input").val(userInfo.note);
         $("#name-input").val(userInfo.name);
-    }    
+    }             
 
     // 监听用户输入，记录数据
     $(".user-input").on("input", function () {
@@ -151,9 +224,9 @@ $(document).ready(function () {
     $(document).on("click", ".remove-from-cart", function () {
         const itemId = $(this).attr("data-id");
         cart.delete(itemId);
-        loadOrderSummary();
-        updateCartCount();
-    });
+        updateSelectedMenu(); // 更新页面上的已选菜单
+        updateCartCount(); // 购物车数字也要更新
+    });    
 
     loadMenuData();
 
@@ -235,69 +308,90 @@ $(document).ready(function () {
     });
 
     // 显示用户信息
-    $("#receipt-user-info").empty();xw
+    $("#receipt-user-info").empty();
     Object.keys(userInfo).forEach(key => {
         $("#receipt-user-info").append(`<p>${key.charAt(0).toUpperCase() + key.slice(1)}: ${userInfo[key]}</p>`);
     });
 }
 
+    // 语言按钮同步
+    function syncLanguageButtonState() {
+        $(".language-toggle").removeClass("active");
+        if (currentLanguage === "EN") {
+            $("#language-en").addClass("active");
+            $("#language-zh").removeClass("active");
+        } else {
+            $("#language-zh").addClass("active");
+            $("#language-en").removeClass("active");
+        }
+    
+        // 确保所有页面的语言按钮正确同步
+        $(".language-toggle").each(function () {
+            if ($(this).attr("id") === "language-en" && currentLanguage === "EN") {
+                $(this).addClass("active");
+            } else if ($(this).attr("id") === "language-zh" && currentLanguage === "ZH") {
+                $(this).addClass("active");
+            }
+        });
+    }       
+
+    // 确保所有页面的语言文字更新
+    displayMenu(); // 更新菜单页
+    loadOrderSummary(); // 更新订单页
+    loadReceiptSection(); // 更新收据页
+
 
 
     // section 3
     function loadReceiptSection() {
+        console.log("Loading receipt section..."); // Debug log
+    
         $("#receipt-user-info").empty();
         $("#receipt-menu-items").empty();
-
-        // 显示用户输入的信息
+    
+        // 确保用户信息不会为空
         $("#receipt-user-info").append(`
             <p>Date: ${userInfo.date || "[Not specified]"}</p>
             <p>Time: ${userInfo.time || "[Not specified]"}</p>
             <p>Note: ${userInfo.note || "[Not specified]"}</p>
             <p>Name: ${userInfo.name || "[Not specified]"}</p>
         `);
-
-        // 显示已点菜单项（不含删除按钮）
-        cart.forEach(itemId => {
-            let [category, subCategory, index] = itemId.split("-");
-            let item = menuData[category]?.[subCategory]?.[index];
-
-            if (item) {
-                let displayName = currentLanguage === "EN" ? item.name : item.cname;
-                $("#receipt-menu-items").append(`
-                    <li>${displayName}</li>
-                `);
-            }
-        });
-    }
+    
+        // 确保菜品列表更新
+        if (cart.size === 0) {
+            $("#receipt-menu-items").append(`<li>No items selected.</li>`);
+        } else {
+            cart.forEach(itemId => {
+                let [category, subCategory, index] = itemId.split("-");
+                let item = menuData[category]?.[subCategory]?.[index];
+                if (item) {
+                    $("#receipt-menu-items").append(`<li>${item.name} (${item.cname})</li>`);
+                }
+            });
+        }
+    }          
 
     // 监听 "All Set" 按钮，切换到收据页面
-    $("#all-set").click(function () {
-        $("#order-summary").fadeOut(400);
-        setTimeout(() => {
-            $("#receipt-section").fadeIn(400);
-            $("body").addClass("receipt-active");
-            loadReceiptSection();
-            scrollToTop();
-        }, 400);
-    });
-
+    $("#all-set").off("click").on("click", function () {
+        console.log("All Set clicked!"); // Debug log，确认事件触发
     
-    $("#all-set").click(function () {
-        $("#order-summary").fadeOut(400);
-        setTimeout(() => {
-            $("#receipt-section").fadeIn(400);
+        $("#order-summary").fadeOut(400, function () { 
+            $("#receipt-section").fadeIn(400).css("display", "block"); // 强制显示
+            $("body").addClass("receipt-active"); // 让背景色变白
+            loadReceiptSection(); // 确保收据内容更新
+            syncLanguageButtonState(); // 语言状态同步
             scrollToTop();
-        }, 400);
-    });
+        });
+    });          
 
     $("#back-to-summary").click(function () {
         $("#receipt-section").fadeOut(400);
         setTimeout(() => {
             $("#order-summary").fadeIn(400);
-            $("body").removeClass("receipt-active");
+            $("body").removeClass("receipt-active"); // 让背景色恢复
             scrollToTop();
         }, 400);
-    });
+    });    
 
     $("#save-receipt").click(function () {
         html2canvas(document.body).then(canvas => {

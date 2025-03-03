@@ -2,34 +2,34 @@
     "protein_entree": {
         "beef": [
             {
-                "name": "Tomato Sliced Beef",
+                "name": "Beef w Tomato",
                 "cname": "番茄肥牛",
                 "category": "entree dish",
                 "sub_category": "beef",
                 "spicy_level": 0,
-                "ingredients": "Beef, Tomato, Onion",
+                "ingredients": "Sliced Beef, Tomato, Onion",
                 "cingredients": "肥牛、番茄、洋葱",
                 "recommendation": 1.0
             },
             {
-                "name": "Teriyaki Sliced Beef",
+                "name": "Teriyaki Beef",
                 "cname": "照烧肥牛",
                 "category": "entree dish",
                 "sub_category": "beef",
                 "spicy_level": 0,
-                "ingredients": "Beef, Teriyaki Sauce, Onion",
-                "cingredients": "肥牛、照烧酱、洋葱",
+                "ingredients": "Sliced Beef, Onion",
+                "cingredients": "肥牛、洋葱",
                 "recommendation": null
             },
             {
-                "name": "Pickled Chili Enoki Mushroom Sliced Beef",
-                "cname": "酸汤金针菇肥牛",
+                "name": "Pickled Chili Beef",
+                "cname": "酸汤肥牛",
                 "category": "entree dish",
                 "sub_category": "beef",
                 "spicy_level": 1,
-                "ingredients": "Beef, Pickled Chili, Enoki Mushroom, Cabbage",
-                "cingredients": "肥牛、泡椒、金针菇、娃娃菜",
-                "recommendation": 1.0
+                "ingredients": "Sliced Beef, Chili, Enoki Mushroom, Cabbage",
+                "cingredients": "肥牛、辣椒、金针菇、娃娃菜",
+                "recommendation": null
             },
             {
                 "name": "Black Pepper Egg-Wrapped Sliced Beef",
@@ -42,13 +42,13 @@
                 "recommendation": null
             },
             {
-                "name": "Hot and Sour Coriander Sliced Beef",
+                "name": "Spicy & Tangy Beef w Cilantro",
                 "cname": "酸辣香菜肥牛",
                 "category": "entree dish",
                 "sub_category": "beef",
                 "spicy_level": 0,
-                "ingredients": "Beef, Coriander, Chili, Vinegar",
-                "cingredients": "肥牛、香菜、辣椒、醋",
+                "ingredients": "Sliced Beef, Coriander, Chili",
+                "cingredients": "肥牛、香菜、辣椒",
                 "recommendation": null
             },
             {
@@ -69,7 +69,7 @@
                 "spicy_level": 0,
                 "ingredients": "Beef Brisket, Tomato, Onion",
                 "cingredients": "牛腩、番茄、洋葱",
-                "recommendation": 1.0
+                "recommendation": null
             },
             {
                 "name": "Braised Beef Brisket",
